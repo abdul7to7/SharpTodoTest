@@ -1,4 +1,4 @@
-let crudcurdKey = "61854dc1641547368b40383c4093259d";
+const crudcurdKey = "52b6eaa61a1c477ca32ceb5e3ff445e1";
 
 window.document.addEventListener("DOMContentLoaded", async () => {
   let res =
@@ -69,7 +69,8 @@ document.querySelector(".add-todo").addEventListener("click", () => {
     todoDesc: todoDesc,
     isCompleted: false,
   });
-  //   location.reload();
+
+  location.reload();
 });
 
 document.querySelector(".remUl").addEventListener("click", handleItems);
@@ -103,10 +104,13 @@ async function handleItems(e) {
         "_id"
       )}`,
       {
-        ...item.data,
+        // _id: item.data.IdleDeadline,
+        todoTitle: item.data.todoTitle,
+        todoDesc: item.data.todoDesc,
         isCompleted: !item.data.isCompleted,
       }
     );
   }
+  location.reload();
   //   console.log(e.target);
 }
